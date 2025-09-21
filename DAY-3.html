@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports News Today</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background: #fff;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #006400;
+      color: #fff;
+      padding: 1rem 2rem;
+    }
+    header h1 { margin: 0; }
+    #theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    nav.categories {
+      display: flex;
+      justify-content: center;
+      background: #f4f4f4;
+      padding: 0.5rem;
+      gap: 1rem;
+    }
+    nav.categories a {
+      text-decoration: none;
+      color: #006400;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 1rem;
+    }
+    .hero img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .article-title {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+    .metadata {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .toc, .related, .newsletter, .comments, .live-score, .player-spotlight {
+      background: #f5f5f5;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 8px;
+    }
+    .toc ul, .related ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .gallery img {
+      width: 100%;
+      max-width: 30%;
+      border-radius: 6px;
+    }
+
+    .player-spotlight img {
+      max-width: 200px;
+      border-radius: 8px;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .comments textarea {
+      width: 100%;
+      height: 80px;
+      margin-bottom: 0.5rem;
+      border-radius: 6px;
+      padding: 0.5rem;
+    }
+
+    .comments button, .newsletter button {
+      background: #006400;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .footer {
+      background: #006400;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+    body.dark .toc,
+    body.dark .related,
+    body.dark .newsletter,
+    body.dark .comments,
+    body.dark .live-score,
+    body.dark .player-spotlight {
+      background: #1e1e1e;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Sports News</h1>
+    <button id="theme-toggle">🌙</button>
+  </header>
+
+  <!-- Categories -->
+  <nav class="categories">
+    <a href="#">Football</a>
+    <a href="#">Cricket</a>
+    <a href="#">Tennis</a>
+    <a href="#">Athletics</a>
+    <a href="#">Basketball</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1609337462318-1f7f24e3dfde" alt="Sports Event">
+    <h2 class="article-title">Latest Highlights in the World of Sports</h2>
+    <div class="metadata">
+      <p>By <span class="author">Varshini Oleti</span> • 
+         <span class="date">Sep 20, 2025</span> • 
+         <span id="reading-time"></span></p>
+    </div>
+  </section>
+
+  <!-- Live Score -->
+  <section class="live-score">
+    <h3>Live Score</h3>
+    <p><strong>India</strong> 🏏 250/4 (45 overs)</p>
+    <p><strong>Australia</strong> 🏏 245/9 (50 overs)</p>
+    <p>Status: <em>India needs 6 runs in 30 balls</em></p>
+  </section>
+
+  <!-- Table of Contents -->
+  <nav class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#events">Major Sports Events</a></li>
+      <li><a href="#impact">Impact on Fans</a></li>
+      <li><a href="#video">Video Highlights</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ul>
+  </nav>
+
+  <!-- Article Body -->
+  <main class="article">
+    <section id="intro">
+      <h3>Introduction</h3>
+      <p>Sports unite people across cultures and nations. From football stadiums to cricket grounds, the energy and excitement remain unmatched.</p>
+    </section>
+
+    <section id="events">
+      <h3>Major Sports Events</h3>
+      <p>Several global sporting events have captured the world’s attention this year.</p>
+      <ul>
+        <li>International football tournaments</li>
+        <li>Olympic-level athletics competitions</li>
+        <li>Grand Slam tennis championships</li>
+      </ul>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf" alt="Football Match">
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d" alt="Athletics Running">
+        <img src="https://images.unsplash.com/photo-1600783246990-3ab61a72c6f3" alt="Tennis Player">
+      </div>
+    </section>
+
+    <!-- Player Spotlight -->
+    <section class="player-spotlight">
+      <h3>Player Spotlight: Virat Kohli</h3>
+      <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d" alt="Virat Kohli">
+      <p><strong>Country:</strong> India</p>
+      <p><strong>Sport:</strong> Cricket</p>
+      <p><strong>Achievements:</strong> Over 70 international centuries, World Cup winner.</p>
+    </section>
+
+    <section id="impact">
+      <h3>Impact on Fans</h3>
+      <p>Sports inspire passion, bring communities together, and provide valuable life lessons like teamwork, perseverance, and discipline.</p>
+      <ul>
+        <li>Boosts mental and physical well-being</li>
+        <li>Creates global unity through competitions</li>
+        <li>Encourages youth participation</li>
+      </ul>
+    </section>
+
+    <!-- Video Highlights -->
+    <section id="video">
+      <h3>Video Highlights</h3>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/mx5yFhtbpFg" 
+        title="Sports Highlights" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="conclusion">
+      <h3>Conclusion</h3>
+      <p>Sports continue to inspire billions worldwide. They are not just games, but a way of life that promotes health, unity, and global friendship.</p>
+    </section>
+  </main>
+
+  <!-- Related Articles -->
+  <aside class="related">
+    <h3>Related Articles</h3>
+    <ul>
+      <li><a href="#">Top 10 Football Matches of the Year</a></li>
+      <li><a href="#">The Rise of Women in Sports</a></li>
+      <li><a href="#">How Sports Impact Mental Health</a></li>
+    </ul>
+  </aside>
+
+  <!-- Comment Section -->
+  <section class="comments">
+    <h3>Leave a Comment</h3>
+    <textarea placeholder="Write your comment..."></textarea>
+    <button>Submit</button>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h3>Subscribe to Our Newsletter</h3>
+    <input type="email" placeholder="Enter your email" style="padding:0.5rem; border-radius:6px; width:70%">
+    <button>Subscribe</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Sports News. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Reading Time
+    const text = document.querySelector(".article").innerText;
+    const words = text.trim().split(/\s+/).length;
+    const time = Math.ceil(words / 200);
+    document.getElementById("reading-time").textContent = `${time} min read`;
+
+    // Dark/Light Toggle
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+  </script>
+</body>
+</html>
