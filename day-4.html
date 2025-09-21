@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratibha Patil - Bio Data</title>
+  <style>
+    /* General */
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: #f2f6fc;
+      color: #333;
+    }
+    h1, h2, h3 { margin: 0; }
+
+    /* Header */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 40px;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      color: white;
+      flex-wrap: wrap;
+    }
+    .hero img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #ffd700;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .profile-circle {
+      display: none; /* hide initials since we now use real image */
+    }
+    .subtitle { font-style: italic; margin: 5px 0; color: #ffd; }
+    .intro { max-width: 600px; }
+
+    /* Timeline */
+    .timeline {
+      padding: 40px 20px;
+      background: #fff;
+    }
+    .timeline h2 { text-align: center; margin-bottom: 20px; color: #1e3c72; }
+    .timeline-item {
+      width: 45%;
+      padding: 15px;
+      margin: 15px 0;
+      background: #e9f1ff;
+      border-left: 6px solid #1e3c72;
+      border-radius: 6px;
+    }
+    .timeline-item.left { margin-left: 0; }
+    .timeline-item.right { margin-left: auto; }
+
+    /* Achievements */
+    .achievements {
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #e0eafc, #f9f9f9);
+    }
+    .achievements h2 { text-align: center; margin-bottom: 20px; color: #2a5298; }
+    .cards { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      flex: 1 1 200px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .card:hover { background: #2a5298; color: white; transform: translateY(-5px); }
+
+    /* Quotes */
+    .quotes {
+      padding: 40px 20px;
+      text-align: center;
+      background: #fffaf0;
+    }
+    .quotes h2 { color: #c0392b; }
+    .quotes blockquote {
+      background: #fff0f0;
+      margin: 15px auto;
+      padding: 15px;
+      border-left: 6px solid #c0392b;
+      width: 70%;
+      font-style: italic;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Gallery */
+    .gallery {
+      padding: 40px 20px;
+      background: #fff;
+      text-align: center;
+    }
+    .gallery h2 { color: #1e3c72; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .photo {
+      background: #dfe9f3;
+      padding: 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: #2a5298;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .photo:hover { transform: translateY(-5px); background: #2a5298; color: white; }
+
+    /* Footer */
+    footer {
+      padding: 15px;
+      background: #111;
+      color: #ccc;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="hero">
+  <img src="https://images.assettype.com/freepressjournal/2020-12/308f2cb0-0720-46f9-808c-3c58b7f46e78/patil_647_121915122449.jpg?rect=0%2C0%2C3900%2C2048&w=1200&auto=format%2Ccompress&ogImage=true" alt="Pratibha Patil">
+  <div>
+    <h1>Pratibha Patil</h1>
+    <p class="subtitle">First Woman President of India | Visionary Leader</p>
+    <p class="intro">Pratibha Patil served as India’s 12th President and has been a dedicated public servant, championing education, women’s empowerment, and social reforms.</p>
+  </div>
+</header>
+
+<!-- Timeline -->
+<section class="timeline">
+  <h2>A Journey Through Time</h2>
+  <div class="timeline-item left">
+    <h3>1934 - Birth</h3>
+    <p>Born in Nadgaon, Maharashtra, India.</p>
+  </div>
+  <div class="timeline-item right">
+    <h3>1962 - Political Career</h3>
+    <p>Entered politics and worked in Maharashtra State Government.</p>
+  </div>
+  <div class="timeline-item left">
+    <h3>2007 - President</h3>
+    <p>Sworn in as the 12th President of India, first woman to hold the office.</p>
+  </div>
+  <div class="timeline-item right">
+    <h3>Legacy</h3>
+    <p>Inspired millions, promoted education, women empowerment, and social reforms.</p>
+  </div>
+</section>
+
+<!-- Achievements -->
+<section class="achievements">
+  <h2>Achievements & Virtues</h2>
+  <div class="cards">
+    <div class="card">First Woman President of India</div>
+    <div class="card">Advocate for Women Empowerment</div>
+    <div class="card">Promoter of Education & Social Reform</div>
+  </div>
+</section>
+
+<!-- Quotes -->
+<section class="quotes">
+  <h2>Inspirational Quotes</h2>
+  <blockquote>"Leadership is not about power, it’s about responsibility and service."</blockquote>
+  <blockquote>"Education and equality are the foundation for a better society."</blockquote>
+</section>
+
+<!-- Gallery -->
+<section class="gallery">
+  <h2>Gallery</h2>
+  <div class="grid">
+    <div class="photo">Childhood</div>
+    <div class="photo">Political Career</div>
+    <div class="photo">President</div>
+    <div class="photo">With Dignitaries</div>
+    <div class="photo">Awards</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Role Model Bio Page | Designed with HTML & CSS Only</p>
+</footer>
+
+</body>
+</html>
