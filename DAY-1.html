@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Performance Prediction</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #f1f8e9);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px auto;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    }
+    input {
+      padding: 10px;
+      margin: 8px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #0073e6;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 30px;
+      padding: 15px;
+      background: #004080;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎓 Student Performance Prediction</h1>
+    <p>Using Data Science concepts to support education</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Input Module -->
+    <div class="card">
+      <h2>Enter Student Details</h2>
+      <input type="number" id="attendance" placeholder="Attendance %" min="0" max="100"><br>
+      <input type="number" id="marks" placeholder="Marks (out of 100)" min="0" max="100"><br>
+      <button onclick="predictPerformance()">Predict Performance</button>
+      <p id="result"></p>
+    </div>
+
+    <!-- Chart 1 -->
+    <div class="card">
+      <h2>📊 Module 1: Attendance vs Marks (Dynamic)</h2>
+      <canvas id="chart1" width="400" height="250"></canvas>
+      <p><i>Observation: New student data is added when prediction is made.</i></p>
+    </div>
+
+    <!-- Chart 2 -->
+    <div class="card">
+      <h2>📊 Module 2: Predicted Categories (Dynamic)</h2>
+      <canvas id="chart2" width="400" height="250"></canvas>
+      <p><i>Observation: Counts of High, Medium, Low performers update live.</i></p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>Community Service Project | A. Vasavi | MVGR College of Engineering</p>
+  </footer>
+
+  <script>
+    // Chart 1: Dynamic Scatter Plot
+    const ctx1 = document.getElementById('chart1').getContext('2d');
+    const scatterChart = new Chart(ctx1, {
+      type: 'scatter',
+      data: { datasets: [] },
+      options: {
+        scales: {
+          x: { type: 'linear', position: 'bottom', title: { display: true, text: 'Attendance %' } },
+          y: { title: { display: true, text: 'Marks' } }
+        }
+      }
+    });
+
+    // Chart 2: Dynamic Bar Chart (Category Counts)
+    const ctx2 = document.getElementById('chart2').getContext('2d');
+    const barChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ["High Performers", "Medium Performers", "Low Performers"],
+        datasets: [{
+          label: "Number of Students",
+          data: [0, 0, 0],
+          backgroundColor: ["green", "orange", "red"]
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true, title: { display: true, text: 'Student Count' } }
+        }
+      }
+    });
+
+    // Prediction Function
+    function predictPerformance() {
+      let attendance = parseInt(document.getElementById("attendance").value);
+      let marks = parseInt(document.getElementById("marks").value);
+      let result = "";
+      let color = "blue";
+      let categoryIndex = -1;
+
+      if (attendance >= 80 && marks >= 70) {
+        result = "🌟 High Performer";
+        color = "green";
+        categoryIndex = 0;
+        document.getElementById("result").style.color = "green";
+      } else if (attendance >= 50 && marks >= 40) {
+        result = "📘 Medium Performer";
+        color = "orange";
+        categoryIndex = 1;
+        document.getElementById("result").style.color = "orange";
+      } else {
+        result = "⚠️ Low Performer";
+        color = "red";
+        categoryIndex = 2;
+        document.getElementById("result").style.color = "red";
+      }
+
+      document.getElementById("result").innerText = "Prediction: " + result;
+
+      // Add point to scatter chart dynamically
+      scatterChart.data.datasets.push({
+        label: result,
+        data: [{ x: attendance, y: marks }],
+        backgroundColor: color
+      });
+      scatterChart.update();
+
+      // Update bar chart count
+      if (categoryIndex >= 0) {
+        barChart.data.datasets[0].data[categoryIndex] += 1;
+        barChart.update();
+      }
+    }
+  </script>
+
+</body>
+</html>
